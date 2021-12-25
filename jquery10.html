@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery对元素的属性进行操作</title>
+    <script  type="text/javascript" src="javascript/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript">
+       jQuery(function($){ 
+       $(function () {
+            // 全选
+            $("#checkAll").click(function () {
+                $("input[name='checkbox']").attr("checked", true);
+            });
+            // 反选
+            $("#inverse").click(function () {
+                $("input[name='checkbox']").each(function () {
+                    if ($(this).attr("checked")) {
+                        $(this).removeAttr("checked");
+                    } else {
+                        $(this).attr("checked", true);
+                    }
+                });
+            });
+            // 全否
+            $("#checkNo").click(function () {
+                $("input[name='checkbox']").removeAttr("checked");
+            });
+        });
+    }) 
+    </script>
+</head>
+
+<body>
+    <form name="form1">
+        爱好：
+        <div align="left">
+            <P>
+                <input type="checkbox" name="checkbox" value="checkbox">上网<br />
+                <input type="checkbox" name="checkbox" value="checkbox">旅游<br />
+                <input type="checkbox" name="checkbox" value="checkbox">交友<br />
+                <input type="checkbox" name="checkbox" value="checkbox">逛街<br />
+            </P>
+            <p>
+                <input type="checkbox" name="checkbox" value="checkbox">看书<br />
+                <input type="checkbox" name="checkbox" value="checkbox">书法<br />
+                <input type="checkbox" name="checkbox" value="checkbox">游戏<br />
+                <input type="checkbox" name="checkbox" value="checkbox">球类<br />
+            </p>
+            <p>
+                <input type="button" name="Submit1" id="checkAll" value="全选">&nbsp;
+                <input type="button" name="Submit2" id="inverse" value="反选">&nbsp;
+                <input type="button" name="Submit3" id="checkNo" value="全不选">
+            </p>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery中的事件处理</title>
+        <script type="text/javascript" src="javascript/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("input:button").bind("click",function(event,msg1,msg2){
+                    alert(msg1+msg2);
+                }).trigger("click",["欢迎访问","明日科技"]);    //页面加载时触发按钮的单击事件
+            });
+            $(document).ready(function(){
+                $("#pic").hover(function(){
+                $(this).attr("border","1px solid red");       //鼠标移入时为图片加边框
+            },function(){
+                $(this).attr("border",0);          //鼠标移出时去除图片边框
+            });
+            });
+            $(document).ready(function(){     //鼠标移入、移出、点击、移动的效果
+                $("p").mousedown(function(){
+                  alert("您点击了一段文字！");
+                });
+                //$("p").mousemove(function(){
+                 // alert("您正使用鼠标在文字上进行移动");
+               // });
+                $ ("p").mouseover(function(){
+                    alert("您进入了一段文字");
+                });
+                $("p").mouseout(function(){
+                    alert("您从一段文字中移出");
+                });
+            });
+            $(document).ready(function(){     //鼠标单击、双击的效果
+                //$("#text").click(function(){
+                   // alert("您单击了这个文本框！");
+                //});
+                $("#text").dblclick(function(){
+                    alert("您双击了这个文本框!");
+                });
+            });
+            $(document).ready(function(){
+                $("#text").keydown(function(){
+                    alert("您按下了键盘");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" name="button" id="button" value="普通按钮"/>
+        <br/>
+        <br/>
+        <img src="picture/003.jpeg" alt="星星" id="pic">
+        <br/>
+        <P>鼠标在一段文字中的接触效果</P>
+        <br/>
+        <input type="text" id="text" value="文本框" size="5">
+
+    </body>
+</html>

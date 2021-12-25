@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>函数调用</title>
+        <script type="text/javascript">
+            function test(){
+                alert("我喜欢JavaScript");
+            }
+            function show(name,age){
+                document.write("姓名："+name+"&nbsp;&nbsp;&nbsp;&nbsp;年龄："+age);
+            }
+            function sum(x,y){
+                var z=x*y;
+                return z;
+            }
+            function getAverage(score1,score2,score3){
+                var average=(score1+score2+score3)/3;
+                return average;
+            }
+            function getResult(score1,score2,score3){
+                document.write("三位评委给出的分数分别为："+score1+"分、"+score2+"分、"+score3+"分<br>");
+                var result=getAverage(score1,score2,score3);  //调用getAverage（）函数
+                document.write("周星星的最后得分为："+result+"分");  //输出函数的返回值
+            }
+            function f(num){
+                if(num<=1){
+                    return 1;
+                }else{
+                    return f(num-1)*num;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="提交" onclick="test();">
+        <a href="javascript:test();">单击链接</a>
+        <br>
+        <br>
+        <script type="text/javascript">
+            show("张三",25);
+            document.write("<br>");
+            show("李四",27);
+            document.write("<br>");
+            var result=sum(10,20);
+            document.write("<br>10×20="+result);
+            var A=sum(10,20);
+            var B=sum(20,30);
+            var C=A+B;
+            document.write("<br>10乘以20加上20乘以30的和是："+C+"。");
+            document.write("<br>");
+            document.write("<br>");
+            getResult(91,89,93);
+            document.write("<br><br>10!的结果为："+f(10));
+            document.write("<br>");
+            var str1="123abc";
+            var str2="abc123";
+            document.write(parseInt(str1)+"&nbsp;&nbsp;");
+            document.write(parseInt(str1,8)+"&nbsp;&nbsp;");
+            document.write(parseInt(str2));
+            document.write("<br>");
+            var str3="123.45abc";
+            var str4="abc123.45";
+            document.write(parseFloat(str3)+"&nbsp;&nbsp;");
+            document.write(parseFloat(str4));
+            document.write("<br>");
+            var num1=123;
+            var num2="123abc";
+            document.write(isNaN(num1)+"&nbsp;&nbsp;");
+            document.write(isNaN(num2));
+            document.write("<br>");
+            document.write(isFinite(123)+"&nbsp;&nbsp;");
+            document.write(isFinite("123abc")+"&nbsp;&nbsp;");
+            document.write(isFinite(1/0));
+            document.write("<br>");
+            document.write(eval("3+6")+"&nbsp;&nbsp;");
+            eval("x=5,y=6;document.write(x*y)");
+            document.write("<br>");
+            var URI="http://127.0.0.1/save.html?name=测试";   //对URI字符串进行编码
+            document.write(encodeURI(URI));
+            document.write("<br>");
+            var URI=encodeURI("http://127.0.0.1/save.html?name=测试");  //对URI字符串进行解码
+            document.write(decodeURI(URI));
+            document.write("<br>");
+            var star=function(n){
+                for(var i=1;i<=n;i++){
+                    for(var j=1;j<=n-i;j++){
+                        document.write("&nbsp;");
+                    }
+                    for(var j=1;j<=i;j++){
+                        document.write("*&nbsp;")
+                    }
+                    document.write("<br>");
+
+                }
+            }
+            star(6)
+            document.write("<br>");
+
+            function Actor(name,work,achivement){
+                this.name=name;
+                this.work=work;
+                this.achivement=achivement;
+                this.introduction=function(){
+                    document.write("中文名："+this.name);
+                    document.write("<br>代表作品："+this.work);
+                    document.write("<br>主要成就："+this.achivement);
+                }
+            }
+            var Actor1=new Actor("威尔.史密斯","《独立日》、《黑衣人》","奥斯卡金像奖最佳男主角提名");
+            var Actor2=new Actor("鲁迅","《呐喊》、《狂人日记》","中国文学家、思想家");
+            Actor1.introduction();
+            document.write("<br>");
+            Actor2.introduction();
+            document.write("<br>");
+            document.write("<br>");
+
+            function Student(name,sex,age){
+                this.name=name;
+                this.sex=sex;
+                this.age=age;
+            }
+            Student.prototype.show=function(){
+                document.write("姓名："+this.name+"<br>性别："+this.sex+"<br>年龄："+this.age);
+            }
+            var student1=new Student("张三","男",25);
+            student1.show();
+            document.write("<br>");
+            document.write("<br>");
+
+            function Circle(r){
+                this.r=r;
+            }
+            Circle.prototype.pi=3.14;
+            Circle.prototype.circumference=function(){
+                return 2*this.pi*this.r;
+            }
+            Circle.prototype.area=function(){
+                return this.pi*this.r*this.r;
+            }
+            var c=new Circle(10);
+            document.write("圆的半径为："+c.r);
+            document.write("<br>圆的周长为："+c.circumference());
+            document.write("<br>圆的面积为："+c.area());
+            document.write("<br>");
+            document.write("<br>");
+           
+            var book=new Object();
+            book.getbookInfo=getbookInfo;
+            function getbookInfo(name,type,price){
+                document.write("书名："+name+"<br>类型："+type+"<br>价格："+price);
+            }
+            book.getbookInfo("财富自由之路","财经","50");
+            document.write("<br>");
+            document.write("<br>");
+
+            var object={user:"小月",sex:"女",age:26,interest:"运动、唱歌"};
+            for (var example in object){
+                document.write("属性: "+example+"="+object[example]+"<br>");
+            }
+            document.write("<br>");
+
+            function Student(name,sex,age){
+                this.name=name;
+                this.sex=sex;
+                this.age=age;
+            }
+            var student=new Student("周星星","男",26);
+            with(student){
+                document.write("姓名："+name+"<br>性别："+sex+"<br>年龄："+age);
+            }
+            document.write("<br>");
+
+            function ran(digit){
+                var result="";
+                for(i=0;i<digit;i++){
+                    result=result+(Math.floor(Math.random()*10));
+                }
+                alert(result);
+            }
+        </script>
+        <br>
+        请输入要生成的随机数的位数：<p>
+        <form name="form">
+             <input type="text" name="digit">
+             <input type="button" value="生成" onclick="ran(form.digit.value)">
+        </form>
+        <br>
+        <script type="text/javascript">
+             var newDate=new Date();
+             document.write(newDate);
+             document.write("<br>");
+             var newDate1=new Date(2015,5,20);
+             document.write(newDate1);
+             document.write("<br>");
+             var newDate2=new Date(2015,5,20,13,12,56);
+             document.write(newDate2);
+             document.write("<br>");
+             var newDate3=new Date("Jun 20,2015 13:12:56");
+             document.write(newDate3);
+             document.write("<br>");
+             var newDate4=new Date("2015/06/20 13:12:56");
+             document.write(newDate4);
+             document.write("<br>");
+             document.write("<br>");
+             var now=new Date();
+             var year=now.getFullYear();
+             var month=now.getMonth()+1;
+             var date=now.getDate();
+             var day=now.getDay();
+             var week="";
+             switch(day){
+                 case 1:
+                     week="星期一";
+                     break;
+                 case 2:
+                     week="星期二";
+                     break;
+                 case 3:
+                     week="星期三";
+                     break;
+                 case 4:
+                     week="星期四";
+                     break;
+                 case 5:
+                     week="星期五";
+                     break;
+                 case 6:
+                     week="星期六";
+                     break;
+                 default:
+                     week="星期日";
+                     break;
+             }
+             var hour=now.getHours();
+             var minute=now.getMinutes();
+             var second=now.getSeconds();
+             document.write("<span style='font-size:26px;font-family:微软雅黑;color:purple'>");
+             document.write("输出当前日期和时间");
+             document.write("</span>");
+             document.write("<span style='font-size:24px;font-family:楷体;color:orange'>");
+             document.write("<br>今天是："+year+"年"+month+"月"+date+"日 "+week);
+             document.write("<br>现在是："+hour+"："+minute+"："+second);
+             document.write("</span>");
+             document.write("<br>");
+             var myDate=new Date();
+             myDate.setFullYear(2012);
+             myDate.setMonth(5);
+             myDate.setDate(12);
+             myDate.setHours(10);
+             myDate.setMinutes(10);
+             myDate.setSeconds(10);
+             document.write("<br>"+myDate);
+             document.write("<br>");
+             var date1=new Date();
+             var theNextYear=date1.getFullYear()+1;
+             date1.setFullYear(theNextYear);
+             date1.setMonth(0);
+             date1.setDate(1);
+             var date2=new Date();
+             var date3=date1.getTime()-date2.getTime();
+             var days=Math.ceil(date3/(24*60*60*1000));
+             document.write("<br>今天距离明年元旦还有"+days+"天。");
+             document.write("<br>"); 
+        </script>
+        <br>
+        <h3><I>将Date对象转换为不同形式的字符串</I></h3>
+        <script type="text/javascript">
+        var newDate=new Date();
+        document.write(newDate.toString()+"<br>");
+        document.write(newDate.toDateString()+"<br>");
+        document.write(newDate.toTimeString()+"<br>");
+        document.write(newDate.toLocaleString()+"<br>");
+        document.write(newDate.toLocaleDateString()+"<br>");
+        document.write(newDate.toLocaleTimeString()+"<br>");
+        </script>
+        <br>
+        <script type="text/javascript">
+        var arr=new Array("a","b","c","d");
+        var word=arr[2];
+        document.write(word);
+        var arr=new Array("a","b","c","d");
+        document.write("<br>"+arr[2]);
+        var students=new Array(3);
+        students[0]="张三";
+        students[1]="李四";
+        students[2]="王五";
+        for(var i=0;i<3;i++){
+            document.write("<br>第"+(i+1)+"个学霸姓名是："+students[i]);
+        }
+        document.write("<br>");
+        document.write("<br>");
+        var arr=new Array("a","b");
+        arr[2]="c";
+        arr[3]="d";
+        document.write(arr);
+        document.write("<br>");
+        var arr=new Array("a","b","c");
+        arr[1]="x";
+        document.write(arr);
+        document.write("<br>");
+        var arr=new Array("a","b","c","d");
+        delete arr[2];
+        document.write(arr);
+        document.write("<br>");
+        var arr=new Array("a","b","c","d","e");
+        document.write(arr.length);
+        document.write("<br>");
+        var arr=new Array("a","b","c","d","e");
+        arr[arr.length]=arr.length+1;
+        document.write(arr.length);
+        var arr=new Array();
+        arr[9]=100;
+        document.write("<br>"+arr.length);
+        </script>
+        <br>
+        <br>
+        <table cellspacing="1" border="2" bgcolor="green">
+            <tr height="30" bgcolor="yellow">
+                <td align="center" width="50">序号</td>
+                <td align="center" width="100">省份</td>
+                <td align="center" width="100">省会</td>
+                <td align="center" width="280">旅游景点</td>
+            </tr>
+            <script type="text/javascript">
+            var province=new Array("黑龙江省","吉林省","辽宁省");
+            var city=new Array("哈尔滨市","长春市","沈阳市");
+            var tourist=new Array("太阳岛  圣索菲亚教堂  中央大街","净月潭  长影世纪城  动植物公园","沈阳故宫  沈阳北陵  张氏帅府");
+            for(var i=0;i<province.length;i++){
+                document.write("<tr height='26' bgcolor='orange'>");
+                document.write("<td align='center'>"+(i+1)+"</td>");
+                document.write("<td align='center'>"+province[i]+"</td>");
+                document.write("<td align='center'>"+city[i]+"</td>");
+                document.write("<td align='center'>"+tourist[i]+"</td>");
+                document.write("</tr>");
+            }
+            </script>
+        </table>
+        <br>
+        <script type="text/javascript">
+        Array.prototype.outAll=function(ar){
+            for(var i=0;i<this.length;i++){
+                document.write(this[i]);
+                document.write(ar);    //输出数组元素之间的分隔符
+            }
+        }
+        var arr=new Array(1,2,3,4,5,6);
+        arr.outAll("");
+        </script>
+        <br>
+        <script type="text/javascript">
+        var arr=new Array(1,2,3);
+        document.write(arr.concat(4,5,"a","b"));
+        var arr1=new Array(1,2,3);
+        var arr2=new Array("a","b","c");
+        document.write("<br>"+arr1.concat(arr2));
+        document.write("<br>");
+        var arr=new Array(1,2,3);
+        document.write("<br>原数组为："+arr);
+        document.write("<br>添加元素后的新数组长度为："+arr.push("x","y"));
+        document.write("<br>新数组为："+arr);
+        document.write("<br>");
+        var arr=new Array(1,2,3);
+        document.write("<br>原数组为："+arr);
+        document.write("<br>添加元素后的新数组长度为："+arr.unshift("x","y"));
+        document.write("<br>新数组为："+arr);
+        document.write("<br>");
+        var arr=new Array(1,2,3,4,5,6);
+        document.write("<br>原数组为："+arr);
+        document.write("<br>删除的元素为："+arr.pop());
+        document.write("<br>新数组为："+arr);
+        document.write("<br>");
+        var arr=new Array(1,2,3,4,5,6);
+        document.write("<br>原数组为："+arr);
+        document.write("<br>删除的元素为："+arr.shift());
+        document.write("<br>新数组为："+arr);
+        document.write("<br>");
+        var arr1=new Array(1,2,3,4,5,6);
+        arr1.splice(1);
+        document.write("<br>"+arr1);
+        var arr2=new Array(1,2,3,4,5,6);
+        arr2.splice(1,2);
+        document.write("<br>"+arr2);
+        var arr3=new Array(1,2,3,4,5,6);
+        arr3.splice(1,2,"a","b");
+        document.write("<br>"+arr3);
+        var arr4=new Array(1,2,3,4,5,6);
+        arr4.splice(1,0,"a","b");
+        document.write("<br>"+arr4);
+        document.write("<br>");
+        var arr=new Array("banana","orange","apple","pear");
+        document.write("<br>原数组为："+arr);
+        document.write("<br>颠倒后的数组为："+arr.reverse());
+        document.write("<br>");
+        var arr=new Array("banana","orange","apple","pear");
+        document.write("<br>原数组为："+arr);
+        document.write("<br>排序后的数组为："+arr.sort());
+        document.write("<br>");
+        var arr=new Array(9,6,10,5);
+        function ascOrder(x,y){
+            if(x>y){
+                return 1;
+            }else{
+                return -1;
+            }
+        }
+        document.write("<br>原数组为："+arr);
+        document.write("<br>升序排列后的数组为："+arr.sort(ascOrder));
+        document.write("<br>");
+        </script>
+        <br>
+        <table cellspacing="1" bgcolor="blue">
+            <tr height="30" bgcolor="yellowgreen">
+                <td align="center" width="50">排名</td>
+                <td align="center" width="210">影片</td>
+                <td align="center" width="100">票房</td>
+            </tr>
+        <script type=text/javascript>
+        var movie=new Array("魔兽","美人鱼","西游记之孙悟空三打白骨精","疯狂动物城","美国队长3");
+        var boxoffice=new Array(14.7,33.9,12,15.3,12.5);
+        var sortArr=new Array(14.7,33.9,12,15.3,12.5);  //定义票房数组sortArr
+        function ascOrder(x,y){
+            if(x<y){
+                return 1;
+            }else{
+                return -1;
+            }
+        }
+        sortArr.sort(ascOrder);  //对票房进行降序排列
+        for(var i=0;i<sortArr.length;i++){
+            for(var j=0;j<sortArr.length;j++){
+                if(sortArr[i]==boxoffice[j]){    //分别获取排序后的票房在原票房数组中的索引
+                    document.write("<tr height=26 bgcolor='lavender'>");
+                    document.write("<td align='center'>"+(i+1)+"</td>");
+                    document.write("<td align='left'>"+movie[j]+"</td>");
+                    document.write("<td align='center'>"+boxoffice[j]+"亿元</td>");
+                    document.write("</tr>");
+                }
+            }
+        }
+        </script>
+        </table>
+        <br>
+        <script type="text/javascript">
+        var arr=new Array("a","b","c","d","e","f");
+        document.write("<br>原数组为："+arr);
+        document.write("<br>获取数组中第3个元素后的所有元素："+arr.slice(2));
+        document.write("<br>获取数组中第2个到第5个元素："+arr.slice(1,5));
+        document.write("<br>获取数组中倒数第2个元素后的所有元素："+arr.slice(-2));
+        document.write("<br>获取数组中倒数第4个元素到倒数第2个元素的所有元素："+arr.slice(-4,-1));
+        document.write("<br>");
+        var score=new Array(95,90,89,91,96);
+        var scoreStr="";
+        for(var i=0;i<score.length;i++){
+            scoreStr+=score[i]+"分  ";   //对所有分数进行连接
+        }
+        function ascOrder(x,y){
+            if(x<y){
+                return 1;
+            }else{
+                return -1;
+            }
+        }
+        score.sort(ascOrder);   //对所有分数进行降序排列
+        var arr1=score.slice(1,-1);
+        var totalscore=0;
+        for(var i=0;i<arr1.length;i++){
+            totalscore+=arr1[i];
+        }
+        document.write("<br>五位评委打分为："+scoreStr);
+        document.write("<br>去掉一个最高分："+score[0]+"分");
+        document.write("<br>去掉一个最低分："+score[score.length-1]+"分");
+        document.write("<br>选手最终得分为："+totalscore/arr1.length+"分");
+        document.write("<br>")
+        var arr=new Array("a","b","c","d");
+        document.write("<br>"+arr.toString());
+        document.write("<br>"+arr.toLocaleString());
+        document.write("<br>"+arr.join("#"));
+        document.write("<br>"+arr.join("，"));
+        document.write("<br>"+arr.join(","));
+        var arr=new Array("m","n");
+        document.write("<br>"+arr.toLocaleString());
+        </script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XML的应用</title>
+        <script type="text/javascript">
+            var xmlHttp;     //定义 XMLHttpRequest 对象
+            function createXMLHttpRequestObject(){
+                if(window.ActiveXObject){     //如果在IE浏览器下运行
+                    try{
+                        xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    }catch(e){
+                        xmlHttp=false;
+                    }
+                }else{      //如果在Mozilla或其他浏览器下运行
+                    try{
+                        xmlHttp=new XMLHttpRequest();
+                    }catch(e){
+                        xmlHttp=false;
+                    }
+                }
+                //返回创建的对象或显示错误信息
+                if(!xmlHttp)
+                  alert("返回创建的对象或显示错误信息");
+                else
+                  return xmlHttp;
+            }
+            function ReqHtml(){
+                createXmlHttpRequestObject();    //调用函数创建 XMLHttpRequest 对象
+                xmlHttp.onreadystatechange=StatHandler;     //指定回调函数
+                xmlHttp.open("GET","text.html",true);     //调用 text.html 文件
+                xmlHttp.send(null);
+            }
+            function StatHandler(){
+                if(xmlHttp.readyState==4 && xmlHttp.status==200){   //如果请求已完成并请求成功
+                    //获取服务器返回的数据
+                    document.getElementById("webpage").innerHTML=xmlHttp.responseText;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!--创建超链接-->
+        <a href="#" onclick="ReqHtml();">通过 XMLHttpRequest 对象请求 HTML 文件</a>
+        <!--通过<div>标签输出请求内容-->
+        <div id="webpage"></div>
+    </body>
+</html>

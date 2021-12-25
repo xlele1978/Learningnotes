@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>层级选择器之 prev + next 选择器实操</title>
+        <style type="text/css">
+            body{
+                font-size: 12px;
+            }
+            .background{
+                background:#cef;
+            }
+            .background2{
+                background: orange;
+            }
+        </style>
+        <script type="text/javascript" src="javascript/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("label+p").addClass("background");
+                $("div~p").addClass("background2");
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <label>第一个label</label>
+            <p>第一个p</p>
+            <fieldset>
+                <label>第二个label</label>
+                <p>第二个p</p>
+            </fieldset>
+        </div>
+        <p>div外面的p</p>
+    </body>
+</html>

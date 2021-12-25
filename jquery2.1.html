@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery的元素选择器实操一</title>
+    <script type="text/javascript" src="javascript/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("input[type='button']").click(function(){
+                //获取第一个div元素
+                $("div").eq(0).html("<img src='图片/2.jpg' height='200'/>");
+                //获取第二个div元素
+                $("div").eq(1).html("<img src='图片/3.jpg' height='200'/>");
+                //获取第三个div元素
+                $("div").get(2).innerHTML="<img src='图片/6.jpg' height='300'/>云雾消散后山水重现";
+            });
+        });
+    </script>
+</head>
+<body>  
+    <div><img src="图片/2.jpg" height="200"/></div>
+</br>
+    <div><img src="图片/1.jpg" height="200"/></div>
+</br>
+    <div><img src="图片/4.jpg" height="300"/>云里雾里有一群山</div>
+    <input type="button" value="黄昏云雾消散后" style="color:red;height:30px;width: 150px;font-size:large"/>   
+</body>
+</html>

@@ -1,0 +1,123 @@
+html{color:black;}
+/* 后代选择器 */
+h1 em{color:red;} 
+h1>strong{color:blue;}
+h1+p{color:orange;}
+p{font-size:20px;}
+p.right{text-align:right;}
+p.center{text-align:center;}
+a:link{color: yellowgreen; text-decoration:none;}
+a:visited{color:rgb(233, 44, 19); text-decoration:none;}  
+/*链接自带下滑线,用none去除;另外visited的下划线状态会跟着link变化*/
+a:hover{color:pink; text-decoration:underline;}
+a:active{color:blue; text-decoration:none;}
+div{
+    background-color: yellowgreen;
+    font-size: 20px;
+    font-family: Microsoft YaHei,SimSum;
+    color: pink;
+    width:300px;
+    height:250px;
+    margin:1em;/*设置左右外边距*/
+    border:2px solid yellow;
+}
+#a{
+    background-color: yellow;
+    font-size: 30px;
+    font-family: Microsoft YaHei,SimSum;
+    color: black;
+    opacity: 0.3;  
+    width:500px;
+    height:100px;
+    margin:auto;
+    border:3px solid black;
+    text-indent:2em;
+}
+#b{
+    background-color: yellowgreen;
+    font-size: 20px;
+    font-family: Microsoft YaHei,SimSum;
+    color: pink;
+    width:600px;
+    height:400px;
+    margin-top:60px;
+    margin-left: 100px;
+    border:2px solid yellow;
+}
+.c{
+    background-color: blue;
+    font-size: 20px;
+    font-family: Microsoft YaHei,SimSum;
+    color: pink;                                                                                                                                         
+    width:300px;
+    height:150px;
+    border:2px solid yellow;
+}
+.bg{
+    width:80%;
+    height:30%;
+    margin: 0 auto;
+    background-image: url("../图片/4.jpg");
+    border: 2px solid black;
+    background-position: 50% top;
+}
+#tu{
+    width: 400PX;
+    height: 300px;
+    background-image:url(../picture/003.jpeg),url(../picture/007.jpeg), url(../picture/01.jpeg);
+    background-repeat: repeat-x,no-repeat,no-repeat;
+    background-position: top,center,left top;
+    background-size: 20%,100px,cover;
+}
+
+.top{
+    height: 80px;
+    width: 300px;
+    background-color: white;
+    text-align: left;
+}
+.top ul li{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    list-style-type: none;
+    float: left;
+    border: 2px solid;
+}
+.top ul li m1{border-color: red;}
+.top ul li m2{border-color: red yellow;}
+.top ul li m3{border-color: red yellow blue;}
+.top ul li m4{border-color: red yellow blue purple;}
+
+.e{
+    background-color: white;
+    font-size: 20px;
+    font-family: Microsoft YaHei,SimSum;
+    color: pink;
+    width:300px;
+    height:80px;
+    margin:1em;/*设置左右外边距*/
+    border:2px solid;
+}
+.e a1{
+    border-color: red;
+}
+.e a2{
+    border-color: red yellow;
+}
+.e a3{
+    border-color: red yellow blue;
+}
+.e a4{
+    border-color: red yellow blue purple;
+} 
+.Cl{
+    width: 200px;
+    height: 100px;
+    background: red;
+    border: 3px;
+    position: absolute;
+    top: 80px;
+    left: 200px;
+}

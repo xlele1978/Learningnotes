@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>层级选择器之 prev ~ siblings 选择器实操</title>
+        <style type="text/css">
+            body{
+                font-size: 12px;
+            }
+            .background{
+                background:#cef;
+            }
+        </style>
+        <script type="text/javascript" src="javascript/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("div~p").addClass("background");
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <p>第一个p</p>
+            <p>第二个p</p>
+        </div>
+        <p>div外面的p</p>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery对页面中的DOM节点进行创建、插入、删除、复制、替换操作</title>
+        <script type="text/javascript" src="javascript/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){         //创建节点
+                var $p=$("<p></p>");
+                $p.html("<span style='color:red'>方法一添加的内容</span>");
+                $("#div1").append($p);
+                var $txtP=$("<p><span style='color:yellowgreen'>方法二添加的内容</span></p>");
+                $("#div1").append($txtP);
+                $("#div1").append("<p><span style='color:blue'>方法三添加的内容</span></p>");
+            });
+            $(document).ready(function(){          //插入节点
+                $("#div2").append("<p><span style='color:red'>在节点二后面插入内容</span></p>");
+                $("#div2").prepend("<p><span style='color:red'>在节点二前面插入内容</span></p>");
+                $("#div2").appendTo("#div3");
+                $("#div2").prependTo("#div4");
+                $("#div2").after("<p><span style='color:orange'>在节点二外后面插入内容</span></p>");
+                $("#div2").before("<p><span style='color:orange'>在节点二外前面插入内容</span></p>");
+                $("<p><span style='color:pink'>在节点二外后面插入内容</span></p>").insertAfter("#div2");
+                $("<p><span style='color:pink'>在节点二外前面插入内容</span></p>").insertBefore("#div2");
+            });
+            $(document).ready(function(){         //删除节点
+                $("#div5").empty();
+                $("#div6").remove();
+            });
+            $(document).ready(function(){
+                $("input[type='button']").click(function(){
+                    alert("这是一个单击按钮")
+                });
+            });
+            $(document).ready(function(){                      //复制节点
+                $("#button1").bind("click",function(){       //为按钮绑定单击事件
+                    $(this).clone().insertAfter("#button1");      //复制自己但不复制事件处理
+                });
+                $("#button2").bind("click",function(){       //为按钮绑定单击事件
+                    $(this).clone(true).insertAfter(this);      //复制自己同时复制事件处理
+                });
+            });
+            $(document).ready(function(){         //替换节点
+                $("input:button").unbind("click");
+                $("#button3").bind("click",function(){
+                    $("img").replaceWith("<img src='picture/3.png' height='80'/>");
+                });
+                $("#button4").bind("click",function(){
+                    $("<img src='picture/7.png' height='80'/>").replaceAll("img");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            创建节点
+        </div>
+        <br/>
+        插入节点
+        <div id="div2">
+            节点二
+        </div>
+        <div id="div3">
+           节点三
+        </div>
+        <div id="div4">
+            节点四
+         </div>
+         <br/>
+         <br/>
+        删除节点
+        </br>节点五
+        <div id="div5" style="border:1px solid blue; height:26px">
+            <span>谁言寸草心，报得三春晖</span>
+        </div>
+        节点六
+        <div id="div6" style="border:1px solid blue; height:26px">
+            <span>谁言寸草心，报得三春晖</span>
+        </div>
+        <br/>
+        <br/>
+        复制节点<br/>
+        <input type="button" id="button1" value="按钮1"><br/>
+        <input type="button" id="button2" value="按钮2"><br/>
+        <br/>
+        替换节点<br/>
+        <img src="picture/1.png" height="80">
+        <input type="button" id="button3" value="换成绿色">
+        <input type="button" id="button4" value="换成红色">
+
+    </body>
+</html>

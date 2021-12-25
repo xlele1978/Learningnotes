@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>表单选择器实操</title>
+        <script type="text/javascript" src="javascript/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(":checkbox").attr("checked","checked");    //选中复选框
+                $(":radio").attr("checked","checked");     //选中单选按钮
+                $(":image").attr("src","picture/003.jpeg");
+                $(":file").hide();     //隐藏文件域
+                $(":password").val("123");
+                $(":text").val("文本框");
+                $(":button").attr("disabled","disabled");
+                $(":reset").val("重置按钮");
+                $(":submit").val("提交按钮");
+                $("#testDiv").append($("input:hidden:eq(1)").val()); //显示隐藏域的值
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            复选框：<input type="checkbox"/>
+            单选按钮：<input type="radio"/>
+            图像域：<input type="image"/><br/>
+            文件域：<input type="file"/><br/>
+            密码域：<input type="password" width="150px"/><br/>
+            文本框：<input type="text" width="150px"/><br/>
+            普通按钮：<input type="button" value="普通按钮"/><br/>
+            重置按钮：<input type="reset" value=""/><br/>
+            提交按钮：<input type="submit" value=""/><br/>
+            <input type="hidden" value="这是隐藏的元素"/>
+            <input type="hidden" value="这是隐藏的另一个元素"/>
+            <div id="testDiv"><span style="color: red;">隐藏域的值：</span></div>
+        </form>
+    </body>
+</html>

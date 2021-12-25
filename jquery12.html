@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>复制、删除</title>
+        <script type="text/javascript" src="javascript/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#button1").bind("click",function(){
+                    $("#div1").append("<img src='picture/008.jpeg' height='80'/>");
+                });
+                $("#button2").bind("click",function(){
+                    $("img").last().remove();
+                });
+                $("#button3").bind("click",function(){
+                    $("#div1").clone(true).insertAfter("#div1");
+                });
+            });
+            $(document).ready(function(){
+                $("#button4").bind("click",function(){
+                    $("#text").clone().insertAfter("#text");
+                });
+                $("#button6").bind("click",function(){
+                    $("#text").after("<input type='text'/>");
+                })
+                // $("#button5").bind("click",function(){
+                //     $("text").last-1().remove();
+                // })
+            });
+            var obj=document.getElementByIdName("text");
+            for (var i=0; i<obj.length;i++){
+                obj[i].value="";
+            }
+            $(document).ready(function(){
+                $("#button5").bind("click",function(){
+                    $("obj[obj.length-1].value").remove();
+                });
+            });
+            function addText(){
+                var abc=document.getElementById("efg");
+                abc.innerHTML +="<div><input type='text'><input type='button' value='删除' onclick='deleteText(this)'></div>"
+            }
+            function deleteText(This){
+                //获取删除按钮的父元素 的 父元素 利用 爷爷元素 删除
+                This.parentNode.parentNode.removeChild(This.parentNode);
+            }
+        </script>
+
+    </head>
+    <body>
+        <div id="div1">
+        <img src="picture/008.jpeg" height="80"/>
+        </div>
+        <input type="button" id="button1" value="复制图片"/>
+        <input type="button" id="button2" value="删除图片">
+        <input type="button" id="button3" value="复制图片"/>
+    <br/>
+    <br/>
+    <input type="text" id="text" name="text"><br/>
+    <br/>
+    <input type="button" id="button4" value="复制文本框"/>
+    <input type="button" id="button5" value="删除倒数第二个文本框"/>
+    <br/>
+    <input type="button" id="button6" value="新增空白文本框"/>
+    <form>
+        <div id="efg">
+            <input type="button" value="增加" onclick="addText()"/>
+        </div>
+        <input type="text">
+    </form>
+    </body>
+</html>

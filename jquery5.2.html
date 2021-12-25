@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>层级选择器之 parent > child 选择器实操</title>
+        <style type="text/css">
+            input{
+                margin: 5px;
+            }
+            .input{
+                font-size: 12.5pt;
+                color:blue;
+                background-color: yellowgreen;
+                border: 1px solid red;
+            }
+        </style>
+        <script type="text/javascript" src="javascript/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#change").click(function(){
+                    $("form>input").addClass("input");
+                });
+                $("#default").click(function(){
+                    $("form>input").removeClass("input");    //移除为表单元素的直接子元素input添加的样式//
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form id="form1" name="form1" method="post" action="">
+            姓&nbsp;&nbsp;名：<input type="text" name="name" id="name"/><br/>
+            籍&nbsp;&nbsp;贯：<input type="text" name="native" id="native"/><br/>
+            生&nbsp;&nbsp;日：<input type="text" name="birthday" id="birthday"/><br/>
+            E-mail：<input type="text" name="email" id="email"/><br/>
+            <span>
+                <input type="button" name="change" id="change" value="换肤"/>
+            </span>
+            <input type="button" name="default" id="default" value="恢复默认"/>
+        </form>
+    </body>
+</html>

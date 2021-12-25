@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery的复合选择器实操</title>
+    <style type="text/css">
+        .default{
+            border: 1px solid black;
+            background-color: yellow;
+            margin: 10px;
+            width: 90px;
+            float: left;
+            font-size: 12px;
+            padding: 5px;
+        }
+        .change{
+            background-color: red;
+            color:white;
+        }
+        .recover{
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+    <script type="text/javascript" src="javascript/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("input[type=button]").eq(0).click(function(){     //绑定按钮的单击事件
+                $("div,#span").addClass("change");     //添加所使用的CSS类
+            });
+            $("input[type=button]").eq(1).click(function(){     //绑定按钮的单击事件
+                $("div,#span").addClass("recover");     //添加所使用的CSS类
+            });
+        });
+    </script>
+</head>
+<body>
+    <p class="default">P元素</p>
+    <div class="default">div元素</div>
+    <span class="default" id="span">ID为span的元素</span>
+    <input type="button" value="为div元素和ID为span的元素换肤"/>
+    <input type="button" value="为div元素和ID为span的元素恢复原样式">
+</body>
+</html>

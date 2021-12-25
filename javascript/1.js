@@ -1,0 +1,1 @@
+alert("我十分喜欢学习JavaScript！");

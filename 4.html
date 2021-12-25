@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML与JS的简单运用</title>
+    </head>
+    <body>
+    <br/>
+        <script type="text/javascript">
+            document.write("我喜欢学习JavaScript")
+        </script>
+        <!-- <script type="text/javascript" src="javascript/1.js"></script> -->
+        <a href="javascript:alert('您单击了这个超链接')">请单击这里</a>
+    <hr width="300" align="left" size="2" color="black">
+    </br>
+    <input type="button" value="单击按钮" onclick="alert('您单击了这个按钮')">&nbsp;
+    <input type="button" value="测试"  style="color: red" onclick="alert('欢迎学习JavaScript!')">
+<br/>
+<br/>
+    <hr color="blue" size="5">
+    <script type="text/javascript">
+        document.write("m" > "abcd");
+        document.write("<br>");
+        document.write("12" > "3");
+        document.write("<br>");
+        document.write("17" == 17);
+        document.write("<br>");
+        document.write("17" === 17);
+        document.write("<br>");
+        document.write("17" != 17);
+        document.write("<br>");
+        document.write("17" !== 17);
+    </script>
+
+    <script type="text/javascript">
+    document.write("<pre>");
+    document.write("中文名：沙奎尔.奥尼尔");
+    document.write("\n英文名：Shaquille O\'Neal");
+    document.write("\n别名：大鲨鱼");
+    document.write("</pre>");
+    </script>
+
+     <script type="text/javascript">
+     var height=198;
+        document.write("中文名：沙奎尔•奥尼尔");
+        document.write("<br>英文名：Shaquille O'Neal");
+        document.write("<br>别名：大鲨鱼");
+        document.write("<br>身高："+height+"厘米");
+        // alert("影片名称：美人鱼"+"\n导演：周星驰");
+    </script>
+<br/>
+<hr width="300" align="left">
+    <script type="text/javascript">
+        var a = 2;
+        var b = 3;
+        document.write("a=2,b=3");
+        document.write("<p>");
+        a += b;
+        document.write("a+=b运算后：" + "a=" + a);
+        a -= b;
+        document.write("<br>a-=b运算后：" + "a=" + a);
+        a *= b;
+        document.write("<br>a*=b运算后：" + "a=" + a);
+        a /= b;
+        document.write("<br>a/=b运算后：" + "a=" + a);
+        a %= b;
+        document.write("<br>a%=b运算后：" + "a=" + a);
+    </script>
+<hr width="300" align="left">
+<script type="text/javascript">
+    var num = 20;
+    var b = num > 0 && num < 10;
+    var c = num > 0 || num < 10;
+    var d = !num < 10;
+    document.write("num=" + num);
+    document.write("<br>num>0 && num<10 的结果：" + b);
+    document.write("<br>num>0 || num<10 的结果：" + c);
+    document.write("<br>!num<10 的结果：" + d);
+    document.write("<br>");
+    document.write(100 + 200 + "&nbsp;&nbsp;&nbsp;")
+    document.write(100 + "200" + "&nbsp;&nbsp;&nbsp;");
+    document.write(100 - "200" + "&nbsp;&nbsp;&nbsp;");
+    document.write("200" - 100 + "&nbsp;&nbsp;&nbsp;");
+    document.write(true + false + "&nbsp;&nbsp;&nbsp;");
+    document.write(true + "200" + "&nbsp;&nbsp;&nbsp;");
+    document.write(true + 200 + "&nbsp;&nbsp;&nbsp;");
+    document.write("a" + 100 + "&nbsp;&nbsp;&nbsp;")
+    document.write("a" - 100);
+    // var year = 2017;
+    // result=(year%4==0 && year%100!=0)||(year%400==0)?"是闰年":"不是闰年";
+    // alert(year+"年"+result);
+    // var a1=10;
+    // var b1=10;
+    // alert(a1==b1?"相等":"不相等");
+</script>
+<br>
+<script type="text/javascript">
+    var totalscore = 620;
+    var englishscore = 120;
+    if (totalscore > 600) {
+        if (englishscore > 130) {
+            document.write("该考生可以报考外国语大学");
+        } else {
+            document.write("该考生可以报考重点本科，但不能报考外国语大学");
+        }
+    } else {
+        if (totalscore > 500) {
+            document.write("该考生可以报考普通本科");
+        } else {
+            document.write("该考生只能报考专科");
+        }
+    }
+</script>
+<br>
+<script type="text/javascript">
+    var m = 200;
+    var n = 100;
+    code = m + n
+    switch (code) {
+        case 100:
+            document.write(false);
+            break;
+        case 200:
+            document.write(false);
+            break;
+        case 300:
+            document.write(true);
+            break;
+        default:
+            document.write(false);
+            break;
+    }
+</script>
+<br>
+<script type="text/javascript">
+    var i = 3;
+    var sum = 0;
+    do{
+        sum+=i;
+        i++;
+    }while(i<=10);
+    document.write("3+4+5+...+10="+sum);
+    document.write("<br>");
+    for(i=1;i<=10;i++){
+        if(i==5) continue;  //如果i等于5就跳过本次循环
+        document.write(i+"\n");
+    }
+    document.write("<br>");
+    for(i=1;i<=10;i++){
+        if(i==5) break;   //如果i等于5就跳出整个循环
+        document.write(i+"\n");
+    } 
+    document.write("<br>");
+    var i,j;
+    for(i=1;i<=3;i++){
+        document.write(i+"\n");
+        for(j=1;j<=3;j++){
+            if(j==2) break;   //如果j等于2就跳出内层循环
+            document.write(j);
+        }
+        document.write("<br>");
+    }
+</script>
+<hr width="500" align="left">
+<h4>乘法口诀表</h4>
+<script type="text/javascript">
+    var i,j;
+    document.write("<pre>")
+    for(i=1;i<10;i++){
+        for(j=1;j<=i;j++){
+            if(j>1) document.write("\t");
+            document.write(j+"*"+i+"="+j*i);
+        }
+        document.write("<br>");
+    }
+    document.write("<pre>");
+</script>
+<hr width="500" align="left">
+<h3 align="center">电影院3号厅</h3>
+<script type="text/javascript">
+    document.write("<table align='center'>");
+    for(var i=1;i<=4;i++){
+        document.write("<tr height=50>");
+        for(var j=1;j<=6;j++){
+            if(i==1 && j==3){
+                document.write("<td align='center' width=60 style='color:yellow' background=picture/2.png>已售</td>");
+                continue;
+            }
+            if(i==3 && j==5){
+                document.write("<td align='center' width=60 style='color:yellow' background=picture/2.png>已售</td>");
+                continue;
+            }
+            document.write("<td align='center' width=60 background=picture/3.png>"+i+"排"+j+"座"+"</td>");
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+</script>
+<br>
+<script type="text/javascript">
+    // var str="I like JavaScript";
+    // try{
+    //     document.write(str.charat(5));
+    // }catch(exception){
+    //     alert("实际的错误消息为："+exception.message+"\n错误类型字符串为："+exception.name);
+    // }finally{
+    //     alert("结束try...catch...finally语句");
+    // }
+    // try{
+    //     var num=1/0;
+    //     if(num=="Infinity"){
+    //         throw new Error("除数不可以为0");
+    //     }
+    // }catch(exception){
+    //     alert(exception.message);
+    // }
+</script>
+
+    </body>
+</html>

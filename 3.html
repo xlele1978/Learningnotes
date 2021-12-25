@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3-HTML</title>
+    <link href="style-css/3.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    
+<div class="a1">
+<h2>旋转</h2>
+<img src="picture/002.jpeg" height="100px" width="100px" border="2">
+</div>
+<div class="a2">
+<h2>缩放</h2>
+<img src="picture/003.jpeg" height="100px" width="100px" border="2"> 
+</div>
+<div class="a3">
+<h2>平移</h2>
+<img src="picture/004.jpeg" height="100px" width="100px" border="2">
+</div>
+<div class="a4">
+<h2>倾斜</h2>
+<img src="picture/005.jpeg" height="100px" width="100px" border="2">
+</div>
+<div class="a5">
+<h2>旋转+变换中心点</h2>
+<img src="picture/006.jpeg" height="100px" width="100px" border="2">
+</div>
+<div class="a6">
+<h2>变换中心点</h2>
+<img src="picture/006.jpeg" height="100px" width="100px" border="2">
+</div>
+<div id="b1">
+    <p class="b2">我有一个家，名字叫中国，兄弟姐妹都很多，景色也不错。</p>
+</div>
+<div class="b3">
+    <div class="b4">
+    <p>华为年度盛典</p>
+    <p>惊喜连连</p>
+    <p>新品手机震撼上市</p>
+    <P>折扣多多</P>
+    <p>不容错过</p>
+    <p>惊喜购机有好礼</p>
+    <p>满减优惠</p>
+    <p>神秘幸运奖</p>
+    <p>华为等你带回家</p>
+    </div>
+</div>
+
+<marquee with ="400px" behavior="scroll" bgcolor="pink"> 这是一个复杂的滚动字幕例子...... 这是一个复杂的滚动字幕例子...... 这是一个复杂的滚动字幕例子...... 这是一个复杂的滚动字幕例子...... 这是一个复杂的滚动字幕例子...... 这是一个复杂的滚动字幕例子...... 这是一个复杂的滚动字幕例子...... 这是一个复杂的滚动字幕例子...... </marquee>
+     
+<div>
+     <video  width="640" height="360" source src="拜年视频.mp4" type="video/mp4" controls="controls">
+     </video>
+</div>
+</hr color="blue" height="20">
+
+<!--添加视频-->
+<div class="videoContainer">
+    <video id="videoPlayer" ontimeupdate="progressUpdate()"  width="640" height="360"> 
+        <source src="拜年视频.mp4" type="video/mp4"
+    </video>
+</div>
+<!--进度条和时间显示区域-->
+<div class="barContainer">
+    <div id="durationBar">
+        <div id="positionBar"><span id="displayStatus">进度条.</span></div>
+    </div>
+</div>
+<!--6个功能按钮-->
+<div class="btn">
+    <button onclick="play()">播放</button>
+    <button onclick="pause()">暂停</button>
+    <button onclick="stop()">停止</button>
+    <button onclick="speedUp()">加速播放</button>
+    <button onclick="slowDown()">减速播放</button>
+    <button onclick="normalSpeed()">正常速度</button>
+</div>
+
+
+</body>
+</html>
